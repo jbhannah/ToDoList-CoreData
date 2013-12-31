@@ -119,7 +119,7 @@
     NSString *segueIdentifier = [segue identifier];
 
     if ([segueIdentifier isEqualToString:@"AddItemSegue"]) {
-        TDLAddToDoItemViewController *vc = [segue destinationViewController];
+        TDLAddToDoItemViewController *vc = [[[segue destinationViewController] childViewControllers] objectAtIndex:0];
         vc.toDoItem = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:self.managedObjectContext];
     }
 }
