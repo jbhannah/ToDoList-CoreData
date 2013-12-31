@@ -22,6 +22,7 @@
 		C7956332187275590039BEFC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7956316187275590039BEFC /* CoreData.framework */; };
 		C795633A187275590039BEFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7956338187275590039BEFC /* InfoPlist.strings */; };
 		C795633C187275590039BEFC /* ToDoList_CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C795633B187275590039BEFC /* ToDoList_CoreDataTests.m */; };
+		C7956346187276C40039BEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7956345187276C40039BEFC /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C7956337187275590039BEFC /* ToDoList+CoreDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToDoList+CoreDataTests-Info.plist"; sourceTree = "<group>"; };
 		C7956339187275590039BEFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C795633B187275590039BEFC /* ToDoList_CoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoList_CoreDataTests.m; sourceTree = "<group>"; };
+		C7956345187276C40039BEFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				C7956321187275590039BEFC /* TDLAppDelegate.h */,
 				C7956322187275590039BEFC /* TDLAppDelegate.m */,
+				C7956345187276C40039BEFC /* Main.storyboard */,
 				C7956327187275590039BEFC /* Images.xcassets */,
 				C7956324187275590039BEFC /* ToDoList_CoreData.xcdatamodeld */,
 				C7956319187275590039BEFC /* Supporting Files */,
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7956346187276C40039BEFC /* Main.storyboard in Resources */,
 				C795631D187275590039BEFC /* InfoPlist.strings in Resources */,
 				C7956328187275590039BEFC /* Images.xcassets in Resources */,
 			);
