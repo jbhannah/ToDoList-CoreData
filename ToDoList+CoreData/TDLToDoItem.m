@@ -15,16 +15,18 @@
 @dynamic completed;
 @dynamic creationDate;
 
-- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
+- (void)awakeFromInsert
 {
-    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+    [super awakeFromInsert];
 
-    if (self != nil) {
+    [self setPrimitiveValue:NO forKey:@"completed"];
+}
+
+- (void)willSave
+{
+    if (self.creationDate == nil) {
         self.creationDate = [[NSDate alloc] init];
-        self.completed = NO;
     }
-
-    return self;
 }
 
 @end
