@@ -7,6 +7,7 @@
 //
 
 #import "TDLToDoListViewController.h"
+#import "TDLAddToDoItemViewController.h"
 
 @interface TDLToDoListViewController ()
 
@@ -110,16 +111,17 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+    NSString *segueIdentifier = [segue identifier];
 
- */
+    if ([segueIdentifier isEqualToString:@"AddItemSegue"]) {
+        TDLAddToDoItemViewController *vc = [segue destinationViewController];
+        vc.toDoItem = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:self.managedObjectContext];
+    }
+}
 
 @end

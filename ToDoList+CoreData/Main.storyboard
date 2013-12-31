@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" title="My To-Do List" id="nVe-ba-zJu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pz3-ke-STe">
                             <connections>
-                                <segue destination="zAr-It-Wle" kind="modal" id="VFp-M2-G78"/>
+                                <segue destination="zAr-It-Wle" kind="modal" identifier="AddItemSegue" id="VFp-M2-G78"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

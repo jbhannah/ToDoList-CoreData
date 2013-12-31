@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDLToDoItem.h"
 
 @interface TDLAddToDoItemViewController : UIViewController
+
+@property (strong, nonatomic) TDLToDoItem *toDoItem;
 
 @end
