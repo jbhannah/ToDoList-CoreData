@@ -13,6 +13,7 @@
 
 @dynamic itemName;
 @dynamic completed;
+@dynamic completionDate;
 @dynamic creationDate;
 
 - (void)awakeFromInsert
@@ -26,6 +27,17 @@
 {
     if (self.creationDate == nil) {
         self.creationDate = [[NSDate alloc] init];
+    }
+}
+
+- (void)toggleCompletion
+{
+    self.completed = [[NSNumber alloc] initWithBool:!self.completed];
+    
+    if (self.completed) {
+        self.completionDate = [[NSDate alloc] init];
+    } else {
+        self.completionDate = nil;
     }
 }
 
