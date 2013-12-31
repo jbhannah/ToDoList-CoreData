@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="816" y="97"/>
         </scene>
-        <!--Add To Do Item View Controller-->
+        <!--Add To Do Item View Controller - Add To-Do Item-->
         <scene sceneID="I8K-4s-CnN">
             <objects>
                 <viewController id="Ua2-Wc-fDl" customClass="TDLAddToDoItemViewController" sceneMemberID="viewController">
@@ -61,7 +61,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xeq-cf-Ar6"/>
+                    <navigationItem key="navigationItem" title="Add To-Do Item" id="Xeq-cf-Ar6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A25-VG-kAo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hEs-3K-OfO"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfe-7a-FuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
