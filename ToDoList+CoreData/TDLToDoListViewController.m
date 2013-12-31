@@ -11,6 +11,8 @@
 
 @interface TDLToDoListViewController ()
 
+@property NSFetchedResultsController * __fetchedResultsController;
+
 @end
 
 @implementation TDLToDoListViewController
@@ -22,6 +24,31 @@
         // Custom initialization
     }
     return self;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (self.__fetchedResultsController != nil) {
+        return self.__fetchedResultsController;
+    }
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ToDoItem" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    self.__fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+
+    NSError *error = nil;
+    if (![self.__fetchedResultsController performFetch:&error]) {
+        NSLog(@"Unresolved error: %@, %@", error, [error userInfo]);
+        abort();
+    }
+
+    return self.__fetchedResultsController;
 }
 
 - (void)viewDidLoad
@@ -51,17 +78,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[[self fetchedResultsController] fetchedObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TDLToDoItem *toDoItem = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
-
+    cell.textLabel.text = toDoItem.itemName;
     
     return cell;
 }
