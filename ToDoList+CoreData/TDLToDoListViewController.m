@@ -178,6 +178,7 @@
         [self.tableView reloadData];
     } else {
         vc.toDoItem = nil;
+        [self.managedObjectContext rollback];
     }
 }
 
