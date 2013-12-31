@@ -7,6 +7,7 @@
 //
 
 #import "TDLAppDelegate.h"
+#import "TDLToDoListViewController.h"
 
 @implementation TDLAppDelegate
 
@@ -16,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    TDLToDoListViewController *listViewController = [[self.window.rootViewController childViewControllers] objectAtIndex:1];
+    listViewController.managedObjectContext = self.managedObjectContext;
+    
     return YES;
 }
 
