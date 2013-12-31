@@ -59,7 +59,20 @@
                     <view key="view" contentMode="scaleToFill" id="0ml-jy-khw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New to-do item" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8e-XH-COY">
+                                <rect key="frame" x="20" y="154" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h8e-XH-COY" firstAttribute="top" secondItem="Gfw-Gp-MoO" secondAttribute="bottom" constant="90" id="VEH-l3-kI6"/>
+                            <constraint firstAttribute="trailing" secondItem="h8e-XH-COY" secondAttribute="trailing" constant="20" id="fPb-Zq-lKj"/>
+                            <constraint firstItem="h8e-XH-COY" firstAttribute="leading" secondItem="0ml-jy-khw" secondAttribute="leading" constant="20" id="tUk-r6-BkG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add To-Do Item" id="Xeq-cf-Ar6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A25-VG-kAo"/>
