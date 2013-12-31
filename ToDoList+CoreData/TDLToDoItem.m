@@ -21,6 +21,7 @@
 
     if (self != nil) {
         self.creationDate = [[NSDate alloc] init];
+        self.completed = NO;
     }
 
     return self;
