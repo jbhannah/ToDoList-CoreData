@@ -26,9 +26,9 @@
     return self;
 }
 
-- (NSFetchedResultsController *)fetchedResultsController
+- (NSFetchedResultsController *)fetchedResultsController:(BOOL)reload
 {
-    if (self.__fetchedResultsController != nil) {
+    if (self.__fetchedResultsController != nil && !reload) {
         return self.__fetchedResultsController;
     }
 
@@ -79,14 +79,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[self fetchedResultsController] fetchedObjects] count];
+    return [[[self fetchedResultsController:NO] fetchedObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    TDLToDoItem *toDoItem = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    TDLToDoItem *toDoItem = [[self fetchedResultsController:NO] objectAtIndexPath:indexPath];
     
     cell.textLabel.text = toDoItem.itemName;
     
@@ -153,6 +153,9 @@
 
         [self.managedObjectContext insertObject:vc.toDoItem];
         [self.managedObjectContext save:&error];
+
+        [self fetchedResultsController:YES];
+        [self.tableView reloadData];
     } else {
         vc.toDoItem = nil;
     }
