@@ -7,6 +7,7 @@
 //
 
 #import "TDLAddToDoItemViewController.h"
+#import "TDLToDoListViewController.h"
 
 @interface TDLAddToDoItemViewController ()
 
@@ -36,6 +37,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender != self.doneButton) return;
+
+    if (self.textField.text.length > 0) {
+        [self.toDoItem setItemName:self.textField.text];
+    }
 }
 
 @end

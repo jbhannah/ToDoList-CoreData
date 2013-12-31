@@ -24,11 +24,6 @@
     return self;
 }
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue
-{
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -121,6 +116,19 @@
     if ([segueIdentifier isEqualToString:@"AddItemSegue"]) {
         TDLAddToDoItemViewController *vc = [[[segue destinationViewController] childViewControllers] objectAtIndex:0];
         vc.toDoItem = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:self.managedObjectContext];
+    }
+}
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue
+{
+    TDLAddToDoItemViewController *vc = [segue sourceViewController];
+    if (vc.toDoItem.itemName.length > 0) {
+        NSError *error = nil;
+
+        [self.managedObjectContext insertObject:vc.toDoItem];
+        [self.managedObjectContext save:&error];
+    } else {
+        vc.toDoItem = nil;
     }
 }
 
