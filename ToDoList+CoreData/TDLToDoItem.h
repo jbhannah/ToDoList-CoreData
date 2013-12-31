@@ -1,5 +1,5 @@
 //
-//  ToDoItem.h
+//  TDLToDoItem.h
 //  ToDoList+CoreData
 //
 //  Created by Jesse B. Hannah on 2013-12-30.
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface ToDoItem : NSManagedObject
+@interface TDLToDoItem : NSManagedObject
 
 @property (nonatomic, retain) NSString * itemName;
 @property (nonatomic, retain) NSNumber * completed;
