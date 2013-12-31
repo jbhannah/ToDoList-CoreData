@@ -32,7 +32,7 @@
 
 - (void)toggleCompletion
 {
-    self.completed = [[NSNumber alloc] initWithBool:!self.completed];
+    self.completed = [NSNumber numberWithBool:![self.completed boolValue]];
     
     if (self.completed) {
         self.completionDate = [[NSDate alloc] init];

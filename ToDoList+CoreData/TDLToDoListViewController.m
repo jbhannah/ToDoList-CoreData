@@ -89,8 +89,28 @@
     TDLToDoItem *toDoItem = [[self fetchedResultsController:NO] objectAtIndexPath:indexPath];
     
     cell.textLabel.text = toDoItem.itemName;
+
+    if ([toDoItem.completed boolValue]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+    TDLToDoItem *toDoItem = [[self fetchedResultsController:NO] objectAtIndexPath:indexPath];
+    [toDoItem toggleCompletion];
+
+    NSError *error;
+    [self.managedObjectContext save:&error];
+
+    [self fetchedResultsController:YES];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /*

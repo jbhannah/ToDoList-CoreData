@@ -17,4 +17,6 @@
 @property (nonatomic, retain) NSDate * completionDate;
 @property (nonatomic, retain) NSDate * creationDate;
 
+- (void)toggleCompletion;
+
 @end
