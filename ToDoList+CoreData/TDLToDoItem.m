@@ -15,4 +15,15 @@
 @dynamic completed;
 @dynamic creationDate;
 
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
+{
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+
+    if (self != nil) {
+        self.creationDate = [[NSDate alloc] init];
+    }
+
+    return self;
+}
+
 @end
