@@ -23,6 +23,7 @@
 		C795633A187275590039BEFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7956338187275590039BEFC /* InfoPlist.strings */; };
 		C795633C187275590039BEFC /* ToDoList_CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C795633B187275590039BEFC /* ToDoList_CoreDataTests.m */; };
 		C7956346187276C40039BEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7956345187276C40039BEFC /* Main.storyboard */; };
+		C7956349187278EE0039BEFC /* TDLToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7956348187278EE0039BEFC /* TDLToDoListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		C7956339187275590039BEFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C795633B187275590039BEFC /* ToDoList_CoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoList_CoreDataTests.m; sourceTree = "<group>"; };
 		C7956345187276C40039BEFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C7956347187278EE0039BEFC /* TDLToDoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLToDoListViewController.h; sourceTree = "<group>"; };
+		C7956348187278EE0039BEFC /* TDLToDoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLToDoListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				C7956321187275590039BEFC /* TDLAppDelegate.h */,
 				C7956322187275590039BEFC /* TDLAppDelegate.m */,
 				C7956345187276C40039BEFC /* Main.storyboard */,
+				C7956347187278EE0039BEFC /* TDLToDoListViewController.h */,
+				C7956348187278EE0039BEFC /* TDLToDoListViewController.m */,
 				C7956327187275590039BEFC /* Images.xcassets */,
 				C7956324187275590039BEFC /* ToDoList_CoreData.xcdatamodeld */,
 				C7956319187275590039BEFC /* Supporting Files */,
@@ -259,6 +264,7 @@
 				C7956326187275590039BEFC /* ToDoList_CoreData.xcdatamodeld in Sources */,
 				C795631F187275590039BEFC /* main.m in Sources */,
 				C7956323187275590039BEFC /* TDLAppDelegate.m in Sources */,
+				C7956349187278EE0039BEFC /* TDLToDoListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
