@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     TDLToDoListViewController *listViewController = [[self.window.rootViewController childViewControllers] objectAtIndex:0];
-    listViewController.managedObjectContext = self.managedObjectContext;
+    listViewController.managedObjectContext = [self managedObjectContext];
     
     return YES;
 }
