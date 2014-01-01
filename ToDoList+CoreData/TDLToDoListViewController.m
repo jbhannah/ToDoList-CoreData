@@ -26,9 +26,14 @@
     return self;
 }
 
-- (NSFetchedResultsController *)fetchedResultsController:(BOOL)reload
+- (void)resetFetchedResultsController
 {
-    if (self.__fetchedResultsController != nil && !reload) {
+    self.__fetchedResultsController = nil;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (self.__fetchedResultsController != nil) {
         return self.__fetchedResultsController;
     }
 
@@ -79,14 +84,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[self fetchedResultsController:NO] fetchedObjects] count];
+    return [[[self fetchedResultsController] fetchedObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    TDLToDoItem *toDoItem = [[self fetchedResultsController:NO] objectAtIndexPath:indexPath];
+    TDLToDoItem *toDoItem = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
     cell.textLabel.text = toDoItem.itemName;
 
@@ -103,13 +108,13 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
-    TDLToDoItem *toDoItem = [[self fetchedResultsController:NO] objectAtIndexPath:indexPath];
+    TDLToDoItem *toDoItem = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     [toDoItem toggleCompletion];
 
     NSError *error;
     [self.managedObjectContext save:&error];
 
-    [self fetchedResultsController:YES];
+    [self resetFetchedResultsController];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -174,7 +179,7 @@
         [self.managedObjectContext insertObject:vc.toDoItem];
         [self.managedObjectContext save:&error];
 
-        [self fetchedResultsController:YES];
+        [self resetFetchedResultsController];
         [self.tableView reloadData];
     } else {
         vc.toDoItem = nil;
