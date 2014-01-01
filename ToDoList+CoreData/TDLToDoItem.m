@@ -20,7 +20,7 @@
 {
     [super awakeFromInsert];
 
-    [self setPrimitiveValue:NO forKey:@"completed"];
+    [self setPrimitiveValue:@NO forKey:@"completed"];
 }
 
 - (void)willSave
