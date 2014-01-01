@@ -11,11 +11,13 @@
 
 @interface TDLToDoListViewController ()
 
-@property NSFetchedResultsController * __fetchedResultsController;
+@property (readonly, strong, nonatomic) NSFetchedResultsController * fetchedResultsController;
 
 @end
 
 @implementation TDLToDoListViewController
+
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,13 +30,13 @@
 
 - (void)resetFetchedResultsController
 {
-    self.__fetchedResultsController = nil;
+    _fetchedResultsController = nil;
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (self.__fetchedResultsController != nil) {
-        return self.__fetchedResultsController;
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
     }
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -45,15 +47,15 @@
     NSArray *sortDescriptors = @[sortDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
 
-    self.__fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
 
     NSError *error = nil;
-    if (![self.__fetchedResultsController performFetch:&error]) {
+    if (![_fetchedResultsController performFetch:&error]) {
         NSLog(@"Unresolved error: %@, %@", error, [error userInfo]);
         abort();
     }
 
-    return self.__fetchedResultsController;
+    return _fetchedResultsController;
 }
 
 - (void)viewDidLoad
